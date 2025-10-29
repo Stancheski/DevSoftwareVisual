@@ -1,0 +1,6 @@
+@OrganizadorApi_HostAddress = http://localhost:5062
+
+GET {{OrganizadorApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
