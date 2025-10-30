@@ -5,18 +5,17 @@ body {
   color: #333;
   margin: 0;
   padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
   box-sizing: border-box;
 }
 
-/* Container principal do App */
+/* Container principal (AGORA COM COLUNAS) */
 .App {
+  display: flex;
+  align-items: flex-start; /* Alinha o topo das colunas */
+  gap: 32px; /* Espaço entre as colunas */
   width: 100%;
-  max-width: 600px;
-  min-width: 320px;
+  max-width: 1400px; /* Aumenta a largura máxima */
+  margin: 0 auto; /* Centraliza o layout */
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
@@ -24,50 +23,76 @@ body {
   box-sizing: border-box;
 }
 
+/* Coluna da Esquerda (Formulários) */
+.coluna-esquerda {
+  flex: 1; /* Ocupa 1 parte do espaço */
+  min-width: 350px;
+  max-width: 500px; /* Limita a largura dos formulários */
+}
+
+/* Coluna da Direita (Listas) */
+.coluna-direita {
+  flex: 2; /* Ocupa 2 partes (mais espaço) */
+  min-width: 400px;
+}
+
+/* Títulos */
 h1 {
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 0;
   margin-bottom: 24px;
   font-weight: 600;
 }
 
-/* --- Formulários --- */
-form {
-  display: flex;
+.subtitulo {
+  color: #333;
+  font-weight: 500;
+  border-top: 1px solid #eee; /* Removemos o border-top que existia */
+  padding-top: 16px;
+  margin-top: 24px;
   margin-bottom: 20px;
 }
 
-form input[type="text"] {
-  flex-grow: 1;
+.subtitulo-direita {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Formulários (Inputs agora 100% da coluna) */
+form {
+  display: flex;
+  flex-direction: column; /* Coloca os inputs um em cima do outro */
+  margin-bottom: 20px;
+}
+
+form.form-tarefa {
+  flex-direction: column;
+  gap: 12px;
+}
+
+form input[type="text"],
+form select {
+  width: 100%;
   border: 2px solid #dfe6e9;
   border-radius: 8px;
   padding: 12px 16px;
   font-size: 16px;
   transition: border-color 0.2s ease;
-  margin-right: 12px;
+  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  margin-right: 0; /* Remove margem */
 }
 
-form input[type="text"]:focus {
-  outline: none;
-  border-color: #0984e3;
-}
-
-form select {
-  border: 2px solid #dfe6e9;
-  border-radius: 8px;
-  padding: 12px 10px;
-  font-size: 16px;
-  background-color: white;
-  transition: border-color 0.2s ease;
-  margin-right: 12px;
-}
-
+form input[type="text"]:focus,
 form select:focus {
   outline: none;
   border-color: #0984e3;
 }
 
+/* Botões dos formulários */
 form button {
   padding: 12px 20px;
   font-size: 16px;
@@ -77,50 +102,37 @@ form button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  flex-shrink: 0; /* Impede que o botão encolha */
 }
 
-/* Botão Adicionar Tarefa */
-.form-tarefa button {
+form.form-tarefa button {
   background-color: #0984e3;
 }
-.form-tarefa button:hover {
+form.form-tarefa button:hover {
   background-color: #0073c9;
 }
 
-/* Botão Adicionar Categoria */
-.form-categoria button {
-  background-color: #00b894;
-  font-size: 14px; /* Um pouco menor para diferenciar */
+form.form-categoria {
+  display: flex;
+  flex-direction: row; /* Mantém o input e botão lado a lado */
 }
-.form-categoria button:hover {
+form.form-categoria input {
+  flex-grow: 1;
+  margin-right: 12px;
+}
+form.form-categoria button {
+  background-color: #00b894;
+}
+form.form-categoria button:hover {
   background-color: #00a080;
 }
 
 
-/* --- Listas --- */
-
-.subtitulo {
-  text-align: center;
-  color: #333;
-  font-weight: 500;
-  border-top: 1px solid #eee;
-  padding-top: 24px;
-  margin-top: 32px;
-  margin-bottom: 20px;
-}
-
-ul {
+/* Lista de Categorias */
+.categoria-lista {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-/* Lista de Categorias */
-.categoria-lista {
-  margin-bottom: 20px;
-}
-
 .categoria-item {
   display: flex;
   justify-content: space-between;
@@ -131,54 +143,51 @@ ul {
   border-radius: 8px;
   margin-bottom: 8px;
 }
+.categoria-item span { font-weight: 500; }
+.categoria-item button { font-size: 12px; padding: 6px 10px; }
 
-.categoria-item span {
-  font-weight: 500;
+
+/* --- ESTILOS DA COLUNA DIREITA --- */
+
+.grupo-tarefas {
+  margin-bottom: 24px;
 }
 
-.categoria-item button {
-  font-size: 12px;
-  padding: 6px 10px;
-  background-color: transparent;
-  border: 1px solid #dfe6e9;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-left: 8px;
+.grupo-tarefas h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #0984e3;
+  padding-bottom: 8px;
 }
 
-.btn-editar {
-  color: #636e72;
-  border-color: #b2bec3;
-  background-color: #fafafa;
-  cursor: not-allowed;
+.tarefa-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Lista de Tarefas */
 .tarefa-lista li {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 14px 0;
   border-bottom: 1px solid #dfe6e9;
   font-size: 16px;
   word-break: break-word;
 }
-
-.tarefa-lista li:last-child {
-  border-bottom: none;
-}
+.tarefa-lista li:last-child { border-bottom: none; }
 
 .tarefa-lista li span {
   flex-grow: 1;
   margin-right: 16px;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.tarefa-lista li .categoria-nome {
+.tarefa-lista li .categoria-nome { /* Este seletor não é mais usado aqui, mas não quebra */
   font-size: 12px;
   color: #636e72;
   margin-top: 4px;
@@ -189,7 +198,8 @@ ul {
   color: #b2bec3;
 }
 
-.tarefa-lista li button {
+/* Botões de Ação (Concluir, Remover, Editar) */
+li button, .categoria-item button {
   background-color: transparent;
   border: 1px solid #dfe6e9;
   border-radius: 6px;
@@ -199,33 +209,15 @@ ul {
   cursor: pointer;
   transition: all 0.2s ease;
   margin-left: 8px;
-  flex-shrink: 0;
 }
 
-/* Botões de Ação da Tarefa */
-.tarefa-lista .btn-concluir {
-  color: #27ae60;
-  border-color: #27ae60;
-}
-.tarefa-lista .btn-concluir:hover {
-  background-color: #27ae60;
-  color: white;
-}
-.tarefa-lista li.concluida .btn-concluir {
-  color: #f39c12;
-  border-color: #f39c12;
-}
-.tarefa-lista li.concluida .btn-concluir:hover {
-  background-color: #f39c12;
-  color: white;
-}
-.tarefa-lista .btn-remover,
-.categoria-item .btn-remover {
-  color: #c0392b;
-  border-color: #c0392b;
-}
-.tarefa-lista .btn-remover:hover,
-.categoria-item .btn-remover:hover {
-  background-color: #c0392b;
-  color: white;
-}
+.btn-concluir { color: #27ae60; border-color: #27ae60; }
+.btn-concluir:hover { background-color: #27ae60; color: white; }
+
+li.concluida .btn-concluir { color: #f39c12; border-color: #f39c12; }
+li.concluida .btn-concluir:hover { background-color: #f39c12; color: white; }
+
+.btn-remover { color: #c0392b; border-color: #c0392b; }
+.btn-remover:hover { background-color: #c0392b; color: white; }
+
+.btn-editar { color: #636e72; border-color: #b2bec3; background-color: #fafafa; cursor: not-allowed; }

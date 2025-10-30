@@ -7,5 +7,6 @@ namespace OrganizadorApi.Models
         public bool Concluida { get; set; }
         public int? CategoriaId { get; set; }
         public Categoria? Categoria { get; set; } // Marcado como anulável
+        public int Prioridade { get; set; } // <-- ADICIONE ESTA LINHA
     }
 }
