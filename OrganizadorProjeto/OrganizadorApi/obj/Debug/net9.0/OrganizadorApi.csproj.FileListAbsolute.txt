@@ -131,3 +131,4 @@ C:\Users\Samsung\Downloads\faculdade\DevSoftware\OrganizadorProjeto\OrganizadorA
 C:\Users\Samsung\Downloads\faculdade\DevSoftware\OrganizadorProjeto\OrganizadorApi\obj\Debug\net9.0\OrganizadorApi.pdb
 C:\Users\Samsung\Downloads\faculdade\DevSoftware\OrganizadorProjeto\OrganizadorApi\obj\Debug\net9.0\OrganizadorApi.genruntimeconfig.cache
 C:\Users\Samsung\Downloads\faculdade\DevSoftware\OrganizadorProjeto\OrganizadorApi\obj\Debug\net9.0\ref\OrganizadorApi.dll
+C:\Users\Samsung\Downloads\faculdade\DevSoftware\OrganizadorProjeto\OrganizadorApi\obj\Debug\net9.0\OrganizadorApi.sourcelink.json

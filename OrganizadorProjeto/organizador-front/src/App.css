@@ -32,10 +32,10 @@ h1 {
   font-weight: 600;
 }
 
-/* Formulário de Inserção */
+/* --- Formulários --- */
 form {
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 form input[type="text"] {
@@ -53,57 +53,143 @@ form input[type="text"]:focus {
   border-color: #0984e3;
 }
 
+form select {
+  border: 2px solid #dfe6e9;
+  border-radius: 8px;
+  padding: 12px 10px;
+  font-size: 16px;
+  background-color: white;
+  transition: border-color 0.2s ease;
+  margin-right: 12px;
+}
+
+form select:focus {
+  outline: none;
+  border-color: #0984e3;
+}
+
 form button {
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #0984e3;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  flex-shrink: 0; /* Impede que o botão encolha */
 }
 
-form button:hover {
+/* Botão Adicionar Tarefa */
+.form-tarefa button {
+  background-color: #0984e3;
+}
+.form-tarefa button:hover {
   background-color: #0073c9;
 }
 
-/* Lista de Tarefas */
+/* Botão Adicionar Categoria */
+.form-categoria button {
+  background-color: #00b894;
+  font-size: 14px; /* Um pouco menor para diferenciar */
+}
+.form-categoria button:hover {
+  background-color: #00a080;
+}
+
+
+/* --- Listas --- */
+
+.subtitulo {
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li {
+/* Lista de Categorias */
+.categoria-lista {
+  margin-bottom: 20px;
+}
+
+.categoria-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.categoria-item span {
+  font-weight: 500;
+}
+
+.categoria-item button {
+  font-size: 12px;
+  padding: 6px 10px;
+  background-color: transparent;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.btn-editar {
+  color: #636e72;
+  border-color: #b2bec3;
+  background-color: #fafafa;
+  cursor: not-allowed;
+}
+
+/* Lista de Tarefas */
+.tarefa-lista li {
   display: flex;
   align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid #dfe6e9;
   font-size: 16px;
-  word-break: break-word; /* Garante que texto longo quebre a linha */
+  word-break: break-word;
 }
 
-li:last-child {
+.tarefa-lista li:last-child {
   border-bottom: none;
 }
 
-/* Texto da tarefa */
-li span {
+.tarefa-lista li span {
   flex-grow: 1;
   margin-right: 16px;
   transition: color 0.3s ease, text-decoration 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Estilo da tarefa concluída */
-li.concluida span {
+.tarefa-lista li .categoria-nome {
+  font-size: 12px;
+  color: #636e72;
+  margin-top: 4px;
+}
+
+.tarefa-lista li.concluida span {
   text-decoration: line-through;
   color: #b2bec3;
 }
 
-/* Botões de Ação */
-li button {
+.tarefa-lista li button {
   background-color: transparent;
   border: 1px solid #dfe6e9;
   border-radius: 6px;
@@ -113,33 +199,33 @@ li button {
   cursor: pointer;
   transition: all 0.2s ease;
   margin-left: 8px;
+  flex-shrink: 0;
 }
 
-/* Botão Concluir/Desmarcar */
-li .btn-concluir {
+/* Botões de Ação da Tarefa */
+.tarefa-lista .btn-concluir {
   color: #27ae60;
   border-color: #27ae60;
 }
-li .btn-concluir:hover {
+.tarefa-lista .btn-concluir:hover {
   background-color: #27ae60;
   color: white;
 }
-
-li.concluida .btn-concluir {
+.tarefa-lista li.concluida .btn-concluir {
   color: #f39c12;
   border-color: #f39c12;
 }
-li.concluida .btn-concluir:hover {
+.tarefa-lista li.concluida .btn-concluir:hover {
   background-color: #f39c12;
   color: white;
 }
-
-/* Botão Remover */
-li .btn-remover {
+.tarefa-lista .btn-remover,
+.categoria-item .btn-remover {
   color: #c0392b;
   border-color: #c0392b;
 }
-li .btn-remover:hover {
+.tarefa-lista .btn-remover:hover,
+.categoria-item .btn-remover:hover {
   background-color: #c0392b;
   color: white;
 }
