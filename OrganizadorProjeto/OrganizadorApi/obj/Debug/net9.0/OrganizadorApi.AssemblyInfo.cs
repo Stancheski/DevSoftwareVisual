@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrganizadorApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20fbc2c54a8a9fc87c9dfd4a9bd179a03141504e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15e96bf760b41c1fab88992afb974f363aeb03fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrganizadorApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrganizadorApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,8 +12,6 @@ function App() {
   const [categoriaSelecionadaId, setCategoriaSelecionadaId] = useState(''); 
   const [novaCategoriaNome, setNovaCategoriaNome] = useState('');
 
-  // --- Funções com useCallback ---
-
   const listarTarefas = useCallback(async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/tarefas`);
@@ -33,7 +31,7 @@ function App() {
     } catch (error) {
       console.error("Erro ao buscar categorias:", error);
     }
-  }, [categoriaSelecionadaId]); // Dependência intencional
+  }, [categoriaSelecionadaId]); 
 
 
   useEffect(() => {
@@ -110,10 +108,9 @@ function App() {
     }
   };
 
-  // --- Lógica de Agrupamento (para a coluna da direita) ---
-  const tarefasSemCategoria = tarefas.filter(t => !t.categoriaId);
+   const tarefasSemCategoria = tarefas.filter(t => !t.categoriaId);
 
-  // --- Renderização (HTML com as novas classes de coluna) ---
+  
 
   return (
     <div className="App">
@@ -172,10 +169,8 @@ function App() {
 
         {/* Itera primeiro nas CATEGORIAS */}
         {categorias.map(categoria => {
-          // Filtra as tarefas para esta categoria
           const tarefasDaCategoria = tarefas.filter(t => t.categoriaId === categoria.id);
           
-          // Só mostra o grupo se houver tarefas
           if (tarefasDaCategoria.length === 0) return null;
 
           return (
